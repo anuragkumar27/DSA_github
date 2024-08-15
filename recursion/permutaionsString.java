@@ -12,7 +12,7 @@ public class permutaionsString {
             return;
         }
         for (int i = 0; i < str.length(); i++) {
-            if (freq[i] || (i > 0 && str.charAt(i) == str.charAt(i - 1) && !freq[i - 1])) {
+            if (freq[i] || (i > 0 && str.charAt(i) == str.charAt(i-1) && !freq[i - 1])) {
                 continue;
             }
             freq[i] = true;

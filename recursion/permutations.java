@@ -23,27 +23,53 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class permutations {
-    static void findpermutations(int arr[], List<Integer> ds, List<List<Integer>> list, boolean[] freq) {
-        if (ds.size() == arr.length) {
+    // static void findpermutations(int arr[], List<Integer> ds, List<List<Integer>> list, boolean[] freq) {
+    //     if (ds.size() == arr.length) {
+    //         list.add(new ArrayList<>(ds));
+    //         return;
+    //     }
+    //     for (int i = 0; i < arr.length; i++) {
+    //         if (!freq[i]) {
+    //             freq[i] = true;
+    //             ds.add(arr[i]);
+    //             findpermutations(arr, ds, list, freq);
+    //             ds.remove(ds.size() - 1);
+    //             freq[i] = false;
+    //         }
+    //     }
+    // }
+
+    // public static List<List<Integer>> permute(int[] nums) {
+    //     List<Integer> ds = new ArrayList<>();
+    //     List<List<Integer>> list = new ArrayList<>();
+    //     boolean[] freq = new boolean[nums.length];
+    //     findpermutations(nums, ds, list, freq);
+    //     return list;
+    // }
+
+    static void findpermutations(int index,int arr[],List<List<Integer>> list){
+        if(index==arr.length){
+            List<Integer> ds = new ArrayList<>();
+            for(int i=0;i<arr.length;i++){
+                ds.add(arr[i]);
+            }
             list.add(new ArrayList<>(ds));
             return;
         }
-        for (int i = 0; i < arr.length; i++) {
-            if (!freq[i]) {
-                freq[i] = true;
-                ds.add(arr[i]);
-                findpermutations(arr, ds, list, freq);
-                ds.remove(ds.size() - 1);
-                freq[i] = false;
-            }
+        for(int i=index;i<arr.length;i++){
+            swap(i,index,arr);
+            findpermutations(index+1,arr,list);
+            swap(i,index,arr);
         }
     }
-
+    static void swap(int i,int j,int[] arr){
+        int temp= arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
     public static List<List<Integer>> permute(int[] nums) {
-        List<Integer> ds = new ArrayList<>();
         List<List<Integer>> list = new ArrayList<>();
-        boolean[] freq = new boolean[nums.length];
-        findpermutations(nums, ds, list, freq);
+        findpermutations(0,nums,list);
         return list;
     }
 
