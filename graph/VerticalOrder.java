@@ -17,7 +17,7 @@ public class VerticalOrder {
     // Function to perform vertical order traversal and return a 2D list of node
     // values
     public List<List<Integer>> findVertical(Node root) {
-        Map<Integer, TreeMap<Integer, TreeSet<Integer>>> node = new TreeMap<>();
+        Map<Integer, TreeMap<Integer, ArrayList<Integer>>> node = new TreeMap<>();
         Queue<Tuple> q = new LinkedList<>();
         q.add(new Tuple(root, 0, 0));
         while (!q.isEmpty()) {
@@ -26,7 +26,7 @@ public class VerticalOrder {
             int y = curr.y; // level
 
             node.putIfAbsent(x, new TreeMap<>());
-            node.get(x).putIfAbsent(y, new TreeSet<>());
+            node.get(x).putIfAbsent(y, new ArrayList<>());
             node.get(x).get(y).add(curr.node.data);
 
             if (curr.node.left != null) {
@@ -37,9 +37,10 @@ public class VerticalOrder {
             }
         }
         List<List<Integer>> res = new ArrayList<>();
-        for (TreeMap<Integer, TreeSet<Integer>> ys : node.values()) {
+        for (TreeMap<Integer, ArrayList<Integer>> ys : node.values()) {
             List<Integer> curr = new ArrayList<>();
-            for (TreeSet<Integer> s : ys.values()) {
+            for (ArrayList<Integer> s : ys.values()) {
+                Collections.sort(s);
                 curr.addAll(s);
             }
             res.add(curr);
