@@ -12,7 +12,19 @@ Welcome to the **DSA Problem Set** repository! This repository contains a collec
 
 To get started with the code in this repository, follow these steps:
 
-1. **Clone the Repository:**
+ **Clone the Repository:**
    ```bash
    git clone https://github.com/anuragkumar27/DSA_github.git
    cd DSA_github
+```
+## 🛠️ Tools and Technologies
+**Language**: Java
+**ID**E: VScode, IntelliJ IDEA, Eclipse, or any Java IDE of your choice.
+
+🔍 How to Contribute
+Contributions are welcome! If you have any improvements, new problems, or solutions, please follow these steps:
+
+Fork the Repository
+Create a New Branch
+Make Your Changes
+Submit a Pull Request
