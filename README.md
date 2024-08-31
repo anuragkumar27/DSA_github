@@ -21,7 +21,7 @@ To get started with the code in this repository, follow these steps:
 **Language**: Java
 **ID**E: VScode, IntelliJ IDEA, Eclipse, or any Java IDE of your choice.
 
-🔍 How to Contribute
+## 🔍 How to Contribute
 Contributions are welcome! If you have any improvements, new problems, or solutions, please follow these steps:
 
 Fork the Repository
