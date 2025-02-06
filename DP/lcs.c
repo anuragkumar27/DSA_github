@@ -58,6 +58,6 @@ int main()
 {
     char X[] = "ABCBDAB";
     char Y[] = "BDCABA";
-    longestcommonsubsequence(X, Y);
+    longestcommonsubsequence(Y, X);
     return 0;
 }
